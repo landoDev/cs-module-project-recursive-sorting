@@ -3,22 +3,24 @@ def merge(arrA, arrB):
     elements = len(arrA) + len(arrB)
     merged_arr = [0] * elements
     # Your code here
+    # for i in range check elements
+        # if le
     left, right = 0, 0
-    while left < len(arrA) and right < len(arrB):
-        if arrA[left] < arrB[right]:
-            merged_arr[left + right]
-            left += 1
-        else:
-            merged_arr[right + left]
-            right += 1
-    while left < len(arrA):
-        merged_arr[arrA[left]]
-        left += 1
-        right += 1
-    while right < len(arrB):
-        merged_arr[arrB[right]]
-        left += 1
-        right += 1
+    # while left < len(arrA) and right < len(arrB):
+    #     if arrA[left] < arrB[right]:
+    #         merged_arr[left + right]
+    #         left += 1
+    #     else:
+    #         merged_arr[right + left]
+    #         right += 1
+    # while left < len(arrA):
+    #     merged_arr[arrA[left]]
+    #     left += 1
+    #     right += 1
+    # while right < len(arrB):
+    #     merged_arr[arrB[right]]
+    #     left += 1
+    #     right += 1
 
     return merged_arr
 
@@ -26,9 +28,7 @@ def merge(arrA, arrB):
 def merge_sort(arr):
     # Your code here
     # base case
-    # if len(arr) == 1
-    if len(arr) > 1:
-        # return
+    if len(arr) < 1:
         return
     # move toward base case
     # split the arr into two
@@ -36,10 +36,10 @@ def merge_sort(arr):
     left = arr[:mid]
     right = arr[mid:]
     # call mergesort on both arrays
-    merge_sort(left)
-    merge_sort(right)
+    arrA = merge_sort(left)
+    arrB = merge_sort(right)
     # merge the arrays
-    merge(left, right)
+    arr = merge(arrA, arrB)
 
     return arr
 
