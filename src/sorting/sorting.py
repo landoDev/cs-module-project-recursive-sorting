@@ -3,24 +3,25 @@ def merge(arrA, arrB):
     elements = len(arrA) + len(arrB)
     merged_arr = [0] * elements
     # Your code here
-    # for i in range check elements
-        # if le
     left, right = 0, 0
-    # while left < len(arrA) and right < len(arrB):
-    #     if arrA[left] < arrB[right]:
-    #         merged_arr[left + right]
-    #         left += 1
-    #     else:
-    #         merged_arr[right + left]
-    #         right += 1
-    # while left < len(arrA):
-    #     merged_arr[arrA[left]]
-    #     left += 1
-    #     right += 1
-    # while right < len(arrB):
-    #     merged_arr[arrB[right]]
-    #     left += 1
-    #     right += 1
+    index = 0
+    while left < len(arrA) and right < len(arrB):
+        if arrA[left] < arrB[right]:
+            merged_arr[index] = arrA[left]
+            left += 1
+        else:
+            merged_arr[index] = arrB[right]
+            right += 1
+        index += 1
+    while left < len(arrA):
+        merged_arr[index] = arrA[left]
+        left += 1
+        index += 1
+    while right < len(arrB):
+        merged_arr[index] = arrB[right]
+        right += 1
+        index += 1
+        
 
     return merged_arr
 
@@ -28,18 +29,17 @@ def merge(arrA, arrB):
 def merge_sort(arr):
     # Your code here
     # base case
-    if len(arr) < 1:
-        return
-    # move toward base case
-    # split the arr into two
-    mid = len(arr) // 2
-    left = arr[:mid]
-    right = arr[mid:]
-    # call mergesort on both arrays
-    arrA = merge_sort(left)
-    arrB = merge_sort(right)
-    # merge the arrays
-    arr = merge(arrA, arrB)
+    if len(arr) > 1:
+        # move toward base case
+        # split the arr into two
+        mid = len(arr) // 2
+        left = arr[:mid]
+        right = arr[mid:]
+        # call mergesort on both arrays
+        arrA = merge_sort(left)
+        arrB = merge_sort(right)
+        # merge the arrays
+        arr = merge(arrA, arrB)
 
     return arr
 
